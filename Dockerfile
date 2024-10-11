@@ -31,10 +31,10 @@ WORKDIR /app/sk
 ENV NODE_ENV=production \
     # Frontend port
     PORT=59991 \
+    ABC=123 \
     # Backend proxy
     PROXY_TARGET=http://0.0.0.0:59992
 
-# BLAH
 # Start both services
 # DO NOT CHANGE `/app/pb/pb_data`. Setting `--dir` to anything else breaks the frontend.
 CMD ["/bin/sh", "-c", "/app/pb/pocketbase serve --http 0.0.0.0:59992 --dir /app/pb/pb_data & node server.js"]
