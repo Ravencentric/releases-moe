@@ -17,7 +17,7 @@
           <img src={node.coverImage.extraLarge} alt='cover' class='w-22 h-full' style:object-fit='cover' />
           <div class='p-2 ps-3 flex flex-col w-full' style:min-width='0'>
             <div class='font-bold truncate w-full'>{node.title.english || node.title.userPreferred}</div>
-            <div class='mt-auto flex flex-row gap-2'>
+            <div class='mt-auto flex flex-wrap gap-2'>
               {#if (node.format ?? '') in formatMap}
                 <span class='bg-green-100 text-green-800 text-xs font-medium me-1 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300'>{formatMap[node.format]}</span>
               {/if}
