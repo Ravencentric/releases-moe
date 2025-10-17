@@ -56,7 +56,7 @@
             <a href='/{media.id}' on:click={onSelect} class='cursor-pointer text-base text-left truncate border-t first:border-none py-2 hover:bg-accent hover:text-accent-foreground px-3 transition-colors'>
               {media.title.english || media.title.userPreferred}
               <div class="inline opacity-75">
-                [{media.format}] ({media.seasonYear})
+                [{media.format}] ({media.seasonYear || media.startDate?.year})
               </div>
             </a>
           {/each}

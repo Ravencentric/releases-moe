@@ -54,7 +54,7 @@ export const columns = table.createColumns([
     cell: ({ value }) => createRender(FormatCell, { value })
   }),
   table.column({
-    accessor: 'seasonYear',
+    accessor: ({seasonYear, startDate}) => seasonYear || startDate?.year,
     header: 'Year'
   }),
   table.column({
