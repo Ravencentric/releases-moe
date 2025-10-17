@@ -30,7 +30,7 @@
     <div class='flex flex-row mt-auto pt-2 justify-between w-full font-size-18'>
       <div class='flex align-items-center' style='margin-left: -3px'>
         <Calendar class='pe-2' />
-        {media.seasonYear || 'N/A'}
+        {media.seasonYear || media.startDate?.year || 'N/A'}
       </div>
       <div class='flex align-items-center'>
         {formatMap[format]}
