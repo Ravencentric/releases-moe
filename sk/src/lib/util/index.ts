@@ -1,4 +1,4 @@
-import type { TorrentsResponse } from '$lib/pocketbase/generated-types'
+import { TorrentsTrackerOptions, type TorrentsResponse } from '$lib/pocketbase/generated-types'
 import _as, { type AnitomyResult } from 'anitomyscript'
 
 const formatter = new Intl.RelativeTimeFormat('en')
@@ -108,11 +108,13 @@ function multiCriteriaSort <T> (...criteria: ((arg0: T, arg1: T) => number)[]) {
   }
 }
 
+const trackerSortValues = Object.values(TorrentsTrackerOptions)
 export function sortTorrents (torrents: TorrentsResponse[] | undefined) {
   if (!torrents) return []
   return torrents.sort(multiCriteriaSort(
     (a, b) => Number(b.isBest) - Number(a.isBest),
-    (a, b) => Number(b.dualAudio) - Number(a.dualAudio),
+    (a, b) => Number(a.dualAudio) - Number(b.dualAudio),
+    (a, b) => trackerSortValues.indexOf(a.tracker) - trackerSortValues.indexOf(b.tracker),
     (a, b) => a.releaseGroup.localeCompare(b.releaseGroup)
   ))
 }
