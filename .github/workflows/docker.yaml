@@ -27,7 +27,7 @@ jobs:
 
       - name: Log in to the Container registry
         # Don't login if the pull request is coming from a different repo (e.g. a fork)
-        if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == 'ThaUnknown/releases-moe' }}
+        if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == 'Ravencentric/releases-moe' }}
         uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3.7.0
         with:
           registry: ghcr.io
@@ -51,7 +51,7 @@ jobs:
         with:
           context: .
           # Don't push to registry if the pull request is coming from a different repo (e.g. a fork)
-          push: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == 'ThaUnknown/releases-moe' }}
+          push: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == 'Ravencentric/releases-moe' }}
           provenance: false
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
